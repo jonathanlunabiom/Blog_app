@@ -1,0 +1,8 @@
+<div class="main-posts p-5 display-flex align-center flex-column text-center">
+    <h3>Latest posts</h3>
+    {{#each posts as |post|}}
+    <div class="card card-rounded w-50  bg-white text-black fit-content p-4 col-lg-6 col-12 col-md-8">
+        <span>By: <strong>{{post.user.name}}</strong></span><p class="mt-2">{{post.description}}</p>
+    </div>
+    {{/each}}
+</div>

@@ -1,0 +1,19 @@
+[
+    {
+        "description": "Hello world!",
+        "userId": 2
+
+    },
+    {
+        "description": "Im using this new app!",
+        "userId": 1
+    },
+    {
+        "description": "What a wonderful day :)",
+        "userId": 1
+    },
+    {
+        "description": "I dropped my ice cream :(",
+        "userId": 3
+    }
+]
