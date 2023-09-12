@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // route = /api/users/
 router.post('/', async (req, res) => {
@@ -20,8 +21,10 @@ router.post('/', async (req, res) => {
 });
 
 router.post('/login', async (req, res) => {
-  try {
-    const userData = await User.findOne({ where: { email: req.body.email } });
+  try {     
+    //userData is now an extension of the model so it has access to the methods of the obj.
+    const userData = await User.findOne({ where: { email: req.body.email }, raw: true, });
+    console.log(userData)
 
     //FIRST CHECKING if there's an email existing it doesnt return and continues
     if (!userData) {
@@ -29,11 +32,14 @@ router.post('/login', async (req, res) => {
         .status(400)
         .json({ message: 'Incorrect email or password, please try again' });
       return;
-    }
+    };
+
     //Second filter checks the password
-    const validPassword = await userData.checkPassword(req.body.password);
+    //UserData
+    const validPassword = await userData.checkPass(req.body.password);
 
     if (!validPassword) {
+      console.log('hello')
       res
         .status(400)
         .json({ message: 'Incorrect email or password, please try again' });
@@ -52,9 +58,9 @@ router.post('/login', async (req, res) => {
   }
 });
 
-router.post('/logout', (req, res) => {
+router.post('/logout', withAuth ,(req, res) => {
   //destroying session
-  if (req.session.logged_in) {
+  if (req.session.logged) {
     req.session.destroy(() => {
       res.status(204).end();
     });

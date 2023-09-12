@@ -19,9 +19,9 @@
       <div class="m-2 display-flex w-50 justify-space-around flex-column align-center col-md-4 col-lg-5">
         <div class="mb-3">
           <a href="/" class="mr-2">Home</a>
-          {{#if logged}}
           <a href="/dashboard" class="mr-2">Dashboard</a>
-          <a href="/logout" class="">Log out</a>
+          {{#if logged}}
+          <button id="logout">Log out</button>
           {{else}}
           <a href="/login" class="">Log in</a>
           {{/if}}

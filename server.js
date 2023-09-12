@@ -20,12 +20,14 @@ const PORT = process.env.PORT || 3001;
 //session cookies exp
 const sess = {
     secret: 'Super secret secret',
+    
     cookie: {
-      maxAge: 300000,
+      maxAge: 1800000,
       httpOnly: true,
       secure: false,
       sameSite: 'strict',
     },
+
     resave: false,
     saveUninitialized: true,
     //storage on the database
