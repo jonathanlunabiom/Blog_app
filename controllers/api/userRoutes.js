@@ -26,7 +26,7 @@ router.post('/login', async (req, res) => {
     const userData = await User.findOne({ where: { email: req.body.email }, raw: true, });
     console.log(userData)
 
-    //FIRST CHECKING if there's an email existing it doesnt return and continues
+    //FIRST CHECKING if there's an email.
     if (!userData) {
       res
         .status(400)
@@ -35,11 +35,10 @@ router.post('/login', async (req, res) => {
     };
 
     //Second filter checks the password
-    //UserData
     const validPassword = await userData.checkPass(req.body.password);
+    console.log(validPassword)
 
     if (!validPassword) {
-      console.log('hello')
       res
         .status(400)
         .json({ message: 'Incorrect email or password, please try again' });
