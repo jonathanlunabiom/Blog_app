@@ -8,6 +8,8 @@ router.post('/', async (req, res) => {
     const userData = await User.create(req.body);
 
     req.session.save(() => {
+      //saving on session the user id and its name
+      req.session.username = userData.name;
       req.session.user_id = userData.id;
       //here is where the status changes to true WithAuth (true)
       req.session.logged = true;
@@ -23,9 +25,7 @@ router.post('/', async (req, res) => {
 router.post('/login', async (req, res) => {
   try {     
     //userData is now an extension of the model so it has access to the methods of the obj.
-    const userData = await User.findOne({ where: { email: req.body.email }, raw: true, });
-    console.log(userData)
-
+    const userData = await User.findOne({ where: { email: req.body.email }});
     //FIRST CHECKING if there's an email.
     if (!userData) {
       res
@@ -33,11 +33,11 @@ router.post('/login', async (req, res) => {
         .json({ message: 'Incorrect email or password, please try again' });
       return;
     };
+    
 
     //Second filter checks the password
     const validPassword = await userData.checkPass(req.body.password);
-    console.log(validPassword)
-
+    console.log("Password",req.body.password,"Compare",validPassword)
     if (!validPassword) {
       res
         .status(400)
@@ -46,6 +46,7 @@ router.post('/login', async (req, res) => {
     }
     //init session and turn auth flag true
     req.session.save(() => {
+      req.session.username = userData.name;
       req.session.user_id = userData.id;
       req.session.logged = true;
       

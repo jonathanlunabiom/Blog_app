@@ -5,13 +5,12 @@ const fetchInfo = async (e) => {
     e.preventDefault();
 
     const description = document.querySelector('#post').value.trim();
-    console.log('description', description)
-    const res = await fetch('/dashboard',{
+
+    const res = await fetch('api/post',{
         method: 'POST',
         body: JSON.stringify({description}),
         headers: { 'Content-Type': 'application/json' },
     })
-    console.log(res)
     res.ok ? alert('Done!') : alert('Failed to log in')
 };
 

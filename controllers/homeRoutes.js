@@ -13,7 +13,6 @@ router.get('/', async(req,res)=>{
             }]
         });
         const posts = postData.map((post) => post.get({ plain: true }));
-        console.log(req.session.logged)
         res.render('homepage',{
             posts,
             logged: req.session.logged
@@ -33,24 +32,9 @@ router.get('/login',(req,res)=>{
 
 router.get('/dashboard', withAuth, async(req,res)=>{
     try{
-        res.render('dashboard')
-    }catch(err){
-        res.status(500).json(err.message);
-    }
-});
-
-router.post('/dashboard', withAuth , async(req,res)=>{
-    try{
-        const userId = req.session.user_id;
-        const userName = await User.findByPk(userId,{
-            attributes:'name'
+        res.render('dashboard',{
+            logged: req.session.logged
         })
-        console.log(userName)
-        const postData = await Post.create({
-            ...req.body,
-            userName
-        });
-        res.status(200).json(postData)
     }catch(err){
         res.status(500).json(err.message);
     }
