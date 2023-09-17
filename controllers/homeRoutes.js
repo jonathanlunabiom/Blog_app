@@ -48,9 +48,8 @@ router.get("/dashboard", withAuth, async (req, res) => {
   }
 });
 
-router.get("/edit/:id", withAuth, async (req, res) => {
+router.get("/edit", withAuth, async (req, res) => {
   try {
-    console.log(req.params.id);
     res.render("editpost", {
       logged: req.session.logged,
     });
