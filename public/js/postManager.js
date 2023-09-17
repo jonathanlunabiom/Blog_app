@@ -15,12 +15,6 @@ const delButton = async (e) => {
       res.ok ? alert("Post deleted") : alert("Failed to delete post");
     } else {
       document.location.replace(`/edit/${btnID}`);
-      // const resp = fetch(`/api/post/edit`, {
-      //   method: "POST",
-      //   body: JSON.stringify({ btnID }),
-      //   headers: { "Content-Type": "application/json" },
-      // });
-      // resp.ok ? document.location.replace("/") : alert("Failed to edit post");
     }
   }
 };
