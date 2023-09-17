@@ -5,7 +5,8 @@
         <span>By: <strong>{{post.user.name}}</strong></span><p class="mt-2">{{post.description}}</p>
 
         {{#if post.flag}}
-            <button class="deletebtn"><i class="material-icons" id="{{post.id}}">delete</i></button>
+            <button class="deletebtn" id="{{post.id}}">delete</button>
+            <button class="editbtn" id="{{post.id}}">edit</button>
         {{/if}}
 
     </div>
