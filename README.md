@@ -3,6 +3,7 @@
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 ##Table of Contents
+
 - [Description](#description)
 - [Usage](#usage)
 - [Video](#video)
@@ -19,11 +20,11 @@ This is a blog app to share your thoughts with others and read theirs.
 3. You can delete or edit your own posts by clicking on one of the buttons.
 4. When editing a post you may be redirected to another route in order to write the new post.
 5. Enjoy reading other's posts and posting by your own.
-   
+
 ## Video
 
-[Demo Video](https://youtu.be/YLzbRPuMWRA)
+[Webpage](url.com)
 
 ## License
 
-Blog_app was release under the [MIT License](https://opensource.org/licenses/MIT). 
+Blog_app was release under the [MIT License](https://opensource.org/licenses/MIT).
