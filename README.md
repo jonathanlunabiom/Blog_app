@@ -7,6 +7,7 @@
 - [Description](#description)
 - [Usage](#usage)
 - [Web](#web)
+- [Screenshot](#screenshot)
 - [License](#license)
 
 ## Description
@@ -23,7 +24,10 @@ This is a blog app to share your thoughts with others and read theirs.
 
 ## Web
 
-[Webpage](https://blogapp-sql-592b98397039.herokuapp.com)
+[Blog app](https://blogapp-sql-592b98397039.herokuapp.com)
+
+## Screenshot
+![Blog App Screenshot](./assets/screenshot.png)
 
 ## License
 
