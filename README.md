@@ -23,7 +23,7 @@ This is a blog app to share your thoughts with others and read theirs.
 
 ## Web
 
-[Webpage](url.com)
+[Webpage]([url.com](https://blogapp-sql-592b98397039.herokuapp.com))
 
 ## License
 
